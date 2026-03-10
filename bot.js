@@ -4,8 +4,9 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'Gamerboy21rip.aternos.me',
     port: 53905,
-    username: 'Technoblade',
-    auth: 'offline'
+    username: 'AFK_Bot',
+    auth: 'offline',
+    version: false
   })
 
   bot.on('spawn', () => {
@@ -17,7 +18,8 @@ function createBot() {
   })
 
   bot.on('end', () => {
-    console.log('Disconnected')
+    console.log('Disconnected... reconnecting')
+    setTimeout(createBot, 5000)
   })
 }
 
